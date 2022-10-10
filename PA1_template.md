@@ -16,8 +16,8 @@ The following are auxillary functions used to format the text. Normally this
 would be hidden, but for this assignment all code must be displayed, so the code
 for all auxillary functions are displayed in this section.  
 
-```{r}
 
+```r
 # This code was taken from the "R Markdown Cookbook":
 #   https://bookdown.org/yihui/rmarkdown-cookbook/font-color.html (sec 5.1.1)
 #
@@ -31,7 +31,6 @@ colorize <- function(x, color) {
         sprintf("<span style='color: %s;'>%s</span>", color, x)
     } else x
 }
-
 ```
 ---
 ## Loading and preprocessing the data
@@ -42,10 +41,11 @@ In this section, the code will download the data in **activity.csv** to an R
 table. 
   
 The data from **activity.csv** appears to load correctly but it contains several 
-**`r colorize("NA", "red")`** values. To get an assessment of how many NA values
+**<span style='color: red;'>NA</span>** values. To get an assessment of how many NA values
 and under which heading, we must print out a summary of the code.
 
-```{r}
+
+```r
 ### tidyTable function
 tidyTable <- function(sourceTable)
 {
@@ -59,12 +59,12 @@ loadData <- function (fileName)
     activityTable <- read.csv(fileName)
     return (activityTable)
 }
-
 ```
   
 # TESTING DATA READ
   
-```{r}
+
+```r
 dataReadTest <- function(activityTable, tidyActivityTable)
 {
     activityTable <- loadData('activity.csv')
@@ -81,9 +81,28 @@ dataReadTest <- function(activityTable, tidyActivityTable)
 dataReadTest()
 ```
 
+```
+##   steps       date interval
+## 1    NA 2012-10-01        0
+## 2    NA 2012-10-01        5
+## 3    NA 2012-10-01       10
+##       steps       date interval
+## 17566    NA 2012-11-30     2345
+## 17567    NA 2012-11-30     2350
+## 17568    NA 2012-11-30     2355
+##     steps       date interval
+## 289     0 2012-10-02        0
+## 290     0 2012-10-02        5
+## 291     0 2012-10-02       10
+##       steps       date interval
+## 17278     0 2012-11-29     2345
+## 17279     0 2012-11-29     2350
+## 17280     0 2012-11-29     2355
+```
+
   
 The data from **activity.csv** appears to load correctly but it contains several 
-**`r colorize("NA", "red")`** values. To get an assessment of how many NA values
+**<span style='color: red;'>NA</span>** values. To get an assessment of how many NA values
 and under which heading, we must print out a summary of the code.
 
 
